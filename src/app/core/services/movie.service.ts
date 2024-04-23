@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { pipe, shareReplay } from 'rxjs';
-import { Movie } from '../../shared/interfaces/movie';
+import { shareReplay } from 'rxjs';
+import { Movie } from '../../shared/models/movie.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MovieService {
-
   public movies$ = this.getMovies().pipe(shareReplay(1))
 
-  constructor(private http:HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   private getMovies() {
-    return this.http.get<Movie>('/movies');
+    return this.http.get<Movie[]>('/movies');
   }
 }

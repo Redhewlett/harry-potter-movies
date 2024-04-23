@@ -1,2 +1,7 @@
-<p>movies works!</p>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, libero!</p>
+@if(this.movieService.movies$ |async; as movies){
+  <ul class="movieList">
+    @for (movie of movies; track movie.id) {
+      <app-movie-item [movie]="movie"></app-movie-item>
+    }
+  </ul>
+}

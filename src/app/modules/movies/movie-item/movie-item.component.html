@@ -1,0 +1,10 @@
+@if (movie){
+<li [attr.id]="movie.id">
+  <a [routerLink]="['/movies', movie.id]">
+    <h3>{{ movie.title }}</h3>
+    <p>{{ movie.release_date }}</p>
+    <p>{{ movie.budget }}</p>
+    <p>{{ movie.duration }}</p>
+  </a>
+</li>
+}
