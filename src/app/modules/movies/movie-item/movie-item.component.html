@@ -1,10 +1,11 @@
 @if (movie){
-<li [attr.id]="movie.id">
-  <a [routerLink]="['/movies', movie.id]">
+<li class="movieItem" [attr.id]="movie.id">
+  <div class="movieItem__info">
     <h3>{{ movie.title }}</h3>
-    <p>{{ movie.release_date }}</p>
-    <p>{{ movie.budget }}</p>
-    <p>{{ movie.duration }}</p>
-  </a>
+    <p>Release date: {{ (movie.release_date | date:'yyyy-MM-dd')?.replaceAll('/','-') }}</p>
+    <p>Budget: {{ normalizedBudget }} million</p>
+    <p>Duration: {{ movie.duration | duration }}</p>
+  </div>
+  <button [attr.id]="movie.id" (click)="goToMovie(movie.id)">Details</button>
 </li>
 }

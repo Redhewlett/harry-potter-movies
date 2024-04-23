@@ -1,0 +1,18 @@
+.movieItem{
+  display: flex;
+  justify-content: space-between;
+  & h3, & p{
+    margin:0;
+  }
+}
+.movieItem__info{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0rem 2rem;
+  & h3 {
+    width: 100%;
+  }
+  & p {
+    width: 30%;
+  }
+}
