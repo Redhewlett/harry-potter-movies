@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { Movie } from '../../../shared/models/movie.model';
+import { Movie } from '../../../../shared/models/movie.model';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { DurationPipe } from '../../../shared/pipe/duration.pipe';
+import { DurationPipe } from '../../../../shared/pipe/duration.pipe';
 
 @Component({
   selector: 'app-movie-item',
