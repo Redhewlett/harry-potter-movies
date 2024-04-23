@@ -9,10 +9,14 @@ const routes: Routes = [
   },
   {
     path: 'movies/:movieId',
-    loadChildren: () =>
-      import('./modules/movie-details/movie-details.module').then(
-        (m) => m.MovieDetailsModule
+    loadComponent: () =>
+      import('./movie-details/movie-details.component').then(
+        (m) => m.MovieDetailsComponent
       ),
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
 
