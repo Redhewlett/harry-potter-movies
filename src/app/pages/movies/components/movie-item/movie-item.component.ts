@@ -3,6 +3,7 @@ import { Movie } from '../../../../shared/models/movie.model';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DurationPipe } from '../../../../shared/pipe/duration.pipe';
+import { normaliseBudget } from '../../../../shared/utils/currency.utils';
 
 @Component({
   selector: 'app-movie-item',
@@ -18,18 +19,10 @@ export class MovieItemComponent {
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.normalizedBudget = this.normaliseBudget(this.movie.budget);
+    this.normalizedBudget = normaliseBudget(this.movie.budget);
   }
 
   goToMovie(id: string) {
     this.router.navigate(['/movies', id]);
-  }
-
-  normaliseBudget(budget: string): string {
-    // since we know we get 111 or 111-111
-    const parsedBudget = budget.split('-');
-    return parsedBudget.length > 1
-      ? `$${parsedBudget[0]} - ${parsedBudget[1]}`
-      : `$${parsedBudget[0]}`;
   }
 }
