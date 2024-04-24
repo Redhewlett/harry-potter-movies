@@ -14,13 +14,8 @@ import { normaliseBudget } from '../../../../shared/utils/currency.utils';
 })
 export class MovieItemComponent {
   @Input({ required: true }) movie: Movie;
-  public normalizedBudget = '';
 
   constructor(private router: Router) {}
-
-  ngOnInit() {
-    this.normalizedBudget = normaliseBudget(this.movie.budget);
-  }
 
   goToMovie(id: string) {
     this.router.navigate(['/movies', id]);

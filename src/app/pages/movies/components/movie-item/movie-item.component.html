@@ -3,7 +3,7 @@
   <div class="movieItem__info">
     <h3>{{ movie.title }}</h3>
     <p>Release date: {{ (movie.release_date | date:'yyyy-MM-dd')?.replaceAll('/','-') }}</p>
-    <p>Budget: {{ normalizedBudget }} million</p>
+    <p>Budget: {{ movie.budget }} million</p>
     <p>Duration: {{ movie.duration | duration }}</p>
   </div>
   <button [attr.id]="movie.id" (click)="goToMovie(movie.id)">Details</button>
