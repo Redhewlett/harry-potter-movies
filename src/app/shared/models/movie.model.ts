@@ -5,7 +5,7 @@ export interface Movie {
   release_date: string;
   title: string;
   box_office: string;
-  cinematographer: string[];
+  cinematographers: string[];
   producers: string[];
   summary: string;
   poster: string;

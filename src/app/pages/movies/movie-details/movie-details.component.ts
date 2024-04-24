@@ -4,11 +4,12 @@ import { MovieService } from '../../../core/services/movie.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Movie } from '../../../shared/models/movie.model';
 import { Subscription } from 'rxjs';
-
+import { DurationPipe } from '../../../shared/pipe/duration.pipe';
+import { normaliseBudget } from '../../../shared/utils/currency.utils';
 @Component({
   selector: 'app-movie-details',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, DurationPipe],
   templateUrl: './movie-details.component.html',
   styleUrl: './movie-details.component.css',
 })
@@ -28,7 +29,7 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
     });
     if (id) {
       const subscription = this.movieService.getMovie(id).subscribe((movie) => {
-        this.movie = movie;
+        this.movie = {...movie, budget: normaliseBudget(movie.budget)}
       });
       // lets store the subscription to unsubscribe later
       this.subscription = subscription;

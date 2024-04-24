@@ -3,12 +3,35 @@
     <span class="material-symbols-outlined">home</span>Back
   </button>
   @if(movie){
-  <div class="movie-details">
+  <div class="movie-intro">
     <h1>{{ movie.title }}</h1>
-    <p class="movie-details__main">
+    <p class="movie-intro__main">
       <img [src]="movie.poster" alt="{{ movie.title }}" />
       <span><strong>Summary: </strong>{{ movie.summary }}</span>
     </p>
   </div>
+  <table class="movie-details">
+    <th>Details</th>
+    <tr>
+      <td><strong>Box office</strong></td>
+      <td>{{ movie.box_office | currency }} million</td>
+    </tr>
+    <tr>
+      <td><strong>Budget</strong></td>
+      <td>{{ movie.budget }} million</td>
+    </tr>
+    <tr>
+      <td><strong>Duration</strong></td>
+      <td>{{ movie.duration | duration }}</td>
+    </tr>
+    <tr>
+      <td><strong>Producers</strong></td>
+      <td>{{ movie.producers }}</td>
+    </tr>
+    <tr>
+      <td><strong>Cinematographers</strong></td>
+      <td>{{ movie.cinematographers }}</td>
+    </tr>
+  </table>
   }
 </div>
