@@ -1,3 +1,14 @@
-@if(movie){
-<h1>{{ movie.title }}</h1>
-}
+<div class="container">
+  <button routerLink="/">
+    <span class="material-symbols-outlined">home</span>Back
+  </button>
+  @if(movie){
+  <div class="movie-details">
+    <h1>{{ movie.title }}</h1>
+    <p class="movie-details__main">
+      <img [src]="movie.poster" alt="{{ movie.title }}" />
+      <span><strong>Summary: </strong>{{ movie.summary }}</span>
+    </p>
+  </div>
+  }
+</div>
