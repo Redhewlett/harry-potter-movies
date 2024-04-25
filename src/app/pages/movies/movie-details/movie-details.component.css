@@ -2,7 +2,7 @@
   margin: 0;
 }
 .container {
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
