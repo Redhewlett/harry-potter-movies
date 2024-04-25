@@ -9,6 +9,8 @@ import { normaliseBudget } from '../../shared/utils/currency.utils';
 })
 export class MovieService {
   public movies: WritableSignal<Movie[]> = signal([]);
+  // lets cache the movies so we can filter them later
+  // we'll avoid local storage for now, because the user can modify the data...
   private moviesCache: Movie[] = [];
 
   constructor(private http: HttpClient) {}
@@ -29,8 +31,6 @@ export class MovieService {
   }
 
   public filterMovies(title: string | null, releaseYear: number|null): void {
-    //filter the movies based on the title and release year
-    //this method will be called whenever the title or release year changes
     const movies = this.moviesCache;
     const filteredMovies = movies.filter(
       (movie) => {
