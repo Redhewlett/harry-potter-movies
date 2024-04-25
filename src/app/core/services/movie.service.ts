@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, shareReplay } from 'rxjs';
+import { Observable, catchError, map, of, shareReplay } from 'rxjs';
 import { Movie } from '../../shared/models/movie.model';
 import { normaliseBudget } from '../../shared/utils/currency.utils';
 
@@ -15,13 +15,17 @@ export class MovieService {
         budget: normaliseBudget(movie.budget),
       }))
     ),
+    catchError((error) => {
+      console.error('Error fetching movies', error);
+      return of([]);
+    }),
     shareReplay(1)
   );
 
   constructor(private http: HttpClient) {}
 
   private getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>('/movies');
+    return this.http.get<Movie[]>('/movies')
   }
 
   public getMovie(id: string): Observable<Movie> {
