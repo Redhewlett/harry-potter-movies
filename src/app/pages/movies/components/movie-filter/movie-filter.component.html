@@ -1,1 +1,15 @@
-<p>movie-filter works!</p>
+<div class="formContainer">
+  <h2>Filters</h2>
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" [(ngModel)]="title" >
+    </div>
+    <div class="form-group">
+      <label for="releaseYear">Release Year</label>
+      <input type="number" maxlength="4" name="releaseYear" [(ngModel)]="releaseYear">
+    </div>
+  </form>
+  {{title()}}
+  {{releaseYear()}}
+</div>

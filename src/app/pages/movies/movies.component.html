@@ -1,3 +1,4 @@
+<app-movie-filter></app-movie-filter>
 @if(this.movieService.movies$ |async; as movies){
   <ul class="movieList">
     @for (movie of movies; track movie.id) {
