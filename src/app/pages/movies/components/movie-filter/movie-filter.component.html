@@ -3,13 +3,11 @@
   <form>
     <div class="form-group">
       <label for="title">Title</label>
-      <input type="text" name="title" [(ngModel)]="title" >
+      <input type="text" placeholder="Movie title" name="title" [formControl]="title" >
     </div>
     <div class="form-group">
       <label for="releaseYear">Release Year</label>
-      <input type="number" maxlength="4" name="releaseYear" [(ngModel)]="releaseYear">
+      <input type="number" placeholder="releaseYear" name="releaseYear" [formControl]="releaseYear">
     </div>
   </form>
-  {{title()}}
-  {{releaseYear()}}
 </div>

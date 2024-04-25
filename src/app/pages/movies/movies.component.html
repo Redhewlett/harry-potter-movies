@@ -1,7 +1,7 @@
 <app-movie-filter></app-movie-filter>
-@if(this.movieService.movies$ |async; as movies){
+@if(this.movieService.movies()){
   <ul class="movieList">
-    @for (movie of movies; track movie.id) {
+    @for (movie of this.movieService.movies(); track movie.id) {
       <app-movie-item [movie]="movie"></app-movie-item>
     }
   </ul>

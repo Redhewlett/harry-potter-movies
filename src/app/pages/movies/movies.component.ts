@@ -11,5 +11,7 @@ import { MovieFilterComponent } from './components/movie-filter/movie-filter.com
   styleUrl: './movies.component.css',
 })
 export class MoviesComponent {
-  constructor(public movieService: MovieService) {}
+  constructor(public movieService: MovieService) {
+    this.movieService.getMovies();
+  }
 }
