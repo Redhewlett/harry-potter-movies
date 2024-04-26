@@ -10,4 +10,7 @@ form {
     -webkit-appearance: none;
     margin: 0;
   }
+  & input{
+    width: 250px;
+  }
 }
